@@ -14,6 +14,16 @@ namespace ConstradeApi_Admin.Model.MWallet.Repository
             _context = context;
         }
 
+        public async Task<IEnumerable<SendMoneyTransactionModel>> GetTransaction(int id)
+        {
+            IEnumerable<SendMoneyTransactionModel> result = await _context.WalletTransaction.Where(_w => _w.SenderWalletId == id ||
+                                                                                                         _w.ReceiverWalletId== id)
+                                                                                            .Select(_w => _w.ToModel()).ToListAsync();
+
+
+            return result;
+        }
+
         public async Task<IEnumerable<WalletModel>> GetWallet()
         {
             IEnumerable<WalletModel> wallet = await _context.Wallet.Select(_p => _p.ToModel())

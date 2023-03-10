@@ -20,5 +20,7 @@ namespace ConstradeApi_Admin.Data
         public DbSet<CommunityPostComment> Comment { get; set; }
         public DbSet<SystemFeedback> SystemFeedback { get; set; }
         public DbSet<Wallet> Wallet { get; set; }
+        public DbSet<SendMoneyTransaction> WalletTransaction { get; set; }
+        public DbSet<UserNotification> UserNotifications { get; set; }
     }
 }

@@ -30,5 +30,20 @@ namespace ConstradeApi_Admin.Controllers
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetTransaction(int id)
+        {
+            try
+            {
+                var transactions = await walletRepo.GetTransaction(id);
+
+                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, transactions));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+        }
     }
 }
