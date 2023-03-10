@@ -1,4 +1,5 @@
 ﻿using ConstradeApi.Model.Response;
+using ConstradeApi_Admin.Model.MSubscriptionHistory.Repository;
 using ConstradeApi_Admin.Model.MUser;
 using ConstradeApi_Admin.Model.MUser.Repository;
 using Microsoft.AspNetCore.Http;
@@ -11,10 +12,12 @@ namespace ConstradeApi_Admin.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserRepository _userRepo;
+        private readonly ISubscriptionHistoryRepository _subRepo;
 
-        public UsersController(IUserRepository userRepo)
+        public UsersController(IUserRepository userRepo, ISubscriptionHistoryRepository subRepo)
         {
             _userRepo = userRepo;
+            _subRepo = subRepo;
         }
 
         [HttpGet("hello")]
@@ -62,6 +65,21 @@ namespace ConstradeApi_Admin.Controllers
                 bool flag = await _userRepo.Block(id,reportId);
 
                 return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, flag));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+        }
+
+        [HttpGet("{id}/subscription/history")]
+        public async Task<IActionResult> GetSubscriptionHistory(int id)
+        {
+            try
+            {
+                var data = await _subRepo.GetSubscriptionHistory(id);
+
+                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, data));
             }
             catch (Exception ex)
             {

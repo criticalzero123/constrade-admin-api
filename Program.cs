@@ -5,6 +5,7 @@ using ConstradeApi_Admin.Model.MCommunityPostComment.Repository;
 using ConstradeApi_Admin.Model.MNotification.Repository;
 using ConstradeApi_Admin.Model.MProduct.Repository;
 using ConstradeApi_Admin.Model.MReport.Repository;
+using ConstradeApi_Admin.Model.MSubscriptionHistory.Repository;
 using ConstradeApi_Admin.Model.MSystemFeedback.Repository;
 using ConstradeApi_Admin.Model.MUser.Repository;
 using ConstradeApi_Admin.Model.MWallet.Repository;
@@ -40,6 +41,7 @@ namespace ConstradeApi_Admin
             builder.Services.AddScoped<ISystemFeedbackRepository, SystemFeedbackRepository>();
             builder.Services.AddScoped<IWalletRepository, WalletRepository>();
             builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+            builder.Services.AddScoped<ISubscriptionHistoryRepository, SubscriptionHistoryRepository>();
 
 
             builder.Services.AddDbContext<AdminDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgressDB"]));
