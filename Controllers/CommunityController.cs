@@ -80,5 +80,35 @@ namespace ConstradeApi_Admin.Controllers
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
         }
+
+        [HttpGet("post/{id}")]
+        public async Task<IActionResult> GetPosts(int id)
+        {
+            try
+            {
+                var posts = await _postRepo.GetPosts(id);
+
+                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, posts));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+        }
+
+        [HttpGet("post/comment/{id}")]
+        public async Task<IActionResult> GetComments(int id)
+        {
+            try
+            {
+                var comments = await _commentRepo.GetComments(id);
+
+                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, comments));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+        }
     }
 }

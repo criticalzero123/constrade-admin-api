@@ -1,5 +1,8 @@
 ﻿using ConstradeApi.Entity;
+using ConstradeApi.Model.MCommunity.MCommunityPostComment;
+using ConstradeApi.Services.EntityToModel;
 using ConstradeApi_Admin.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConstradeApi_Admin.Model.MCommunityPostComment.Repository
 {
@@ -24,6 +27,15 @@ namespace ConstradeApi_Admin.Model.MCommunityPostComment.Repository
             _context.SaveChanges();
 
             return true;
+        }
+
+        public async Task<IEnumerable<CommunityPostCommentModel>> GetComments(int id)
+        {
+            IEnumerable<CommunityPostCommentModel> comments = await _context.Comment.Where(_c => _c.CommunityPostId == id)
+                                                                                    .Select(_c => _c.ToModel())
+                                                                                    .ToListAsync();
+
+            return comments;
         }
     }
 }

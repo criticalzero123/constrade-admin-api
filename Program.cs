@@ -44,7 +44,7 @@ namespace ConstradeApi_Admin
             builder.Services.AddScoped<ISubscriptionHistoryRepository, SubscriptionHistoryRepository>();
 
 
-            builder.Services.AddDbContext<AdminDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgressDB"]));
+            builder.Services.AddDbContext<AdminDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgresDBDev"]));
 
             var app = builder.Build();
 
