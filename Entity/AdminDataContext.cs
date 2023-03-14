@@ -23,5 +23,7 @@ namespace ConstradeApi_Admin.Data
         public DbSet<SendMoneyTransaction> WalletTransaction { get; set; }
         public DbSet<UserNotification> UserNotifications { get; set; }
         public DbSet<SubscriptionHistory> SubscriptionsHistory{ get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
     }
 }

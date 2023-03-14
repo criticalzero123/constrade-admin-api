@@ -1,9 +1,9 @@
 ﻿using ConstradeApi.Entity;
-using ConstradeApi.Model.MReport;
 using ConstradeApi.Model.MUser;
-using ConstradeApi.Services.EntityToModel;
 using ConstradeApi_Admin.Data;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using ConstradeApi.Services.EntityToModel;
 
 namespace ConstradeApi_Admin.Model.MUser.Repository
 {
@@ -54,13 +54,36 @@ namespace ConstradeApi_Admin.Model.MUser.Repository
 
         public async Task<IEnumerable<UserAndPersonModel>> GetAllUsers()
         {
-            IEnumerable<UserAndPersonModel> user = await _context.Users.Select(_u => new UserAndPersonModel
-            {
-                User = _u.ToModel(),
-                Person = _u.Person.ToModel()
-            }).ToListAsync();
 
-            return user;
+            IEnumerable<User> users = _context.Users.Include(_u => _u.Person).ToList();
+            List<UserAndPersonModel> u = new List<UserAndPersonModel>();
+
+            foreach(var user in users)
+            {
+                IEnumerable<Transaction> transactions = await _context.Transactions.Where(_t => _t.SellerUserId == user.UserId && _t.IsReviewed).ToListAsync();
+                decimal rates = 0;
+
+                if(transactions.Any())
+                {
+                    rates = _context.Reviews.ToList().Join(transactions,
+                                                                   _r => _r.TransactionRefId,
+                                                                   _t => _t.TransactionId,
+                                                                   (_r, _t) => new { _r, _t }
+                                                                   )
+                                                                .Select(result => Convert.ToDecimal(result._r.Rate)).ToList().Average();
+                }
+
+                
+                u.Add(new UserAndPersonModel
+                {
+                    Person = user.Person.ToModel(),
+                    User = user.ToModel(),
+                    Rate = rates
+                });
+            }
+            
+
+            return u;
         }
     }
 }
