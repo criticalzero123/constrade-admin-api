@@ -45,5 +45,20 @@ namespace ConstradeApi_Admin.Controllers
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
         }
+
+        [HttpGet("{id}/transaction")]
+        public async Task<IActionResult> GetTransaction(int id)
+        {
+            try
+            {
+                var transaction = await _productRepo.GetTransaction(id);
+
+                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, transaction));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+        }
     }
 }

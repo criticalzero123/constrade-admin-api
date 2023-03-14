@@ -35,5 +35,17 @@ namespace ConstradeApi_Admin.Model.MProduct.Repository
 
             return products;
         }
+
+        public async Task<UserAndTransactionModel> GetTransaction(int id)
+        {
+            Transaction transaction = await _context.Transactions.Include(_t => _t.Seller.Person).Include(_t => _t.Buyer.Person).Where(_t => _t.ProductId == id).FirstAsync();
+
+            return new UserAndTransactionModel
+            {
+                Transaction = transaction.ToModel(),
+                Buyer = transaction.Buyer.Person.ToModel(),
+                Seller = transaction.Seller.Person.ToModel(),
+            };
+        }
     }
 }
