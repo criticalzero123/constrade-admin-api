@@ -49,9 +49,6 @@ namespace ConstradeApi_Admin.Model.MUser.Repository
 
             return true;
         }
-
-
-
         public async Task<IEnumerable<UserAndPersonModel>> GetAllUsers()
         {
 
@@ -84,6 +81,23 @@ namespace ConstradeApi_Admin.Model.MUser.Repository
             
 
             return u;
+        }
+
+        public async Task<IEnumerable<ReviewAndPersonModel>> GetReviews(int uid)
+        {
+            IEnumerable<Transaction> transaction = await _context.Transactions.Include(_t => _t.Buyer.Person).Include(_t => _t.Seller.Person).Where(_u => _u.SellerUserId == uid).ToListAsync();
+
+            IEnumerable<ReviewAndPersonModel> reviews = _context.Reviews.ToList().Join(transaction,
+                                                                                       _r => _r.TransactionRefId,
+                                                                                       _t => _t.TransactionId,
+                                                                                       (_r, _t) => new { _r, _t }
+                                                                                       )
+                                                                                 .Select(_result => new ReviewAndPersonModel
+                                                                                 {
+                                                                                     Person = _result._t.Buyer.Person.ToModel(),
+                                                                                     Review = _result._r.ToModel(),
+                                                                                 });
+            return reviews;
         }
     }
 }

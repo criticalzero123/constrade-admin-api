@@ -86,5 +86,20 @@ namespace ConstradeApi_Admin.Controllers
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
         }
+
+        [HttpGet("{id}/reviews")]
+        public async Task<IActionResult> GetReviews(int id)
+        {
+            try
+            {
+                var reviews = await _userRepo.GetReviews(id);
+
+                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, reviews));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+        }
     }
 }
