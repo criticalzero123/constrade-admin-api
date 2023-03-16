@@ -9,6 +9,8 @@ using ConstradeApi_Admin.Model.MSubscriptionHistory.Repository;
 using ConstradeApi_Admin.Model.MSystemFeedback.Repository;
 using ConstradeApi_Admin.Model.MUser.Repository;
 using ConstradeApi_Admin.Model.MWallet.Repository;
+using ConstradeApi_Admin.VerificationEntity;
+using ConstradeApi_Admin.VerificationModel.MValidIdRequest.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace ConstradeApi_Admin
@@ -32,6 +34,11 @@ namespace ConstradeApi_Admin
                            .AllowAnyMethod();
                 });
             });
+
+            builder.Services.AddDbContext<AdminDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgresDBDev"]));
+            builder.Services.AddDbContext<AdminVerificationDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgresDBVerificationDev"]));
+
+
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IReportRepository, ReportRepository>();
             builder.Services.AddScoped<ICommunityPostCommentRepository, CommunityPostCommentRepository>();
@@ -43,8 +50,10 @@ namespace ConstradeApi_Admin
             builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
             builder.Services.AddScoped<ISubscriptionHistoryRepository, SubscriptionHistoryRepository>();
 
+            builder.Services.AddScoped<IValidIdRequestRepository, ValidIdRequestRepository>();
 
-            builder.Services.AddDbContext<AdminDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgresDBDev"]));
+
+
 
             var app = builder.Build();
 
