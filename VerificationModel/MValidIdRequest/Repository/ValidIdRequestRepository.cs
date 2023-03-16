@@ -27,7 +27,7 @@ namespace ConstradeApi_Admin.VerificationModel.MValidIdRequest.Repository
             User? user = await _clientContext.Users.FindAsync(userId);
             if (user == null) return false;
 
-            user.UserStatus = "verified";
+            user.UserType = "verified";
             await _clientContext.SaveChangesAsync();
 
             request.Status = "accepted";
@@ -38,7 +38,7 @@ namespace ConstradeApi_Admin.VerificationModel.MValidIdRequest.Repository
 
         public async Task<IEnumerable<GetRequestAdmin>> GetValidationRequests()
         {
-            var requests = await _context.ValidIdRequests.Select(_r => new GetRequestAdmin
+            var requests = await _context.ValidIdRequests.Where(_r => _r.Status.Equals("pending")).Select(_r => new GetRequestAdmin
             {
                 RequestInfo = _r.ToModel(),
                 Exist = _context.ValidIds.Any(_v => _v.ValidIdNumber.Equals(_r.ValidIdNumber) && _v.ValidIdType == _r.ValidationType),
