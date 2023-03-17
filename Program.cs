@@ -1,4 +1,5 @@
 using ConstradeApi_Admin.Data;
+using ConstradeApi_Admin.Model.MBoostProduct.Repository;
 using ConstradeApi_Admin.Model.MCommunity.Repository;
 using ConstradeApi_Admin.Model.MCommunityPost.Repository;
 using ConstradeApi_Admin.Model.MCommunityPostComment.Repository;
@@ -49,6 +50,7 @@ namespace ConstradeApi_Admin
             builder.Services.AddScoped<IWalletRepository, WalletRepository>();
             builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
             builder.Services.AddScoped<ISubscriptionHistoryRepository, SubscriptionHistoryRepository>();
+            builder.Services.AddScoped<IBoostProductRepository, BoostProductRepository>();
 
             builder.Services.AddScoped<IValidIdRequestRepository, ValidIdRequestRepository>();
 

@@ -25,5 +25,6 @@ namespace ConstradeApi_Admin.Data
         public DbSet<SubscriptionHistory> SubscriptionsHistory{ get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<BoostProduct> BoostedProduct { get; set; }
     }
 }
