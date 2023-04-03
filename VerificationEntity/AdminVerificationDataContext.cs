@@ -1,5 +1,4 @@
-﻿using ConstradeApi.VerificationEntity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace ConstradeApi_Admin.VerificationEntity
 {

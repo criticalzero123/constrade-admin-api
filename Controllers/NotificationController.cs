@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Model.Response;
+﻿using ConstradeApi_Admin.Model.Response;
 using ConstradeApi_Admin.Model.MNotification.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

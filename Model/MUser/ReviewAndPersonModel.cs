@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Model.MUser;
+﻿using ConstradeApi_Admin.Model.MUser;
 
 namespace ConstradeApi_Admin.Model.MUser
 {

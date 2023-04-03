@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Model.MWallet;
+﻿using ConstradeApi_Admin.Model.MWallet;
 
 namespace ConstradeApi_Admin.Model.MWallet.Repository
 {

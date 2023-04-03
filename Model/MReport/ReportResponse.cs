@@ -1,5 +1,5 @@
-﻿using ConstradeApi.Model.MReport;
-using ConstradeApi.Model.MUser;
+﻿using ConstradeApi_Admin.Model.MReport;
+using ConstradeApi_Admin.Model.MUser;
 
 namespace ConstradeApi_Admin.Model.MReport
 {

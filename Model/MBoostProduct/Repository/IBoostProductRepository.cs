@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Entity;
+﻿using ConstradeApi_Admin.Entity;
 
 namespace ConstradeApi_Admin.Model.MBoostProduct.Repository
 {

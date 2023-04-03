@@ -1,5 +1,5 @@
-﻿using ConstradeApi.Entity;
-using ConstradeApi.VerificationModel.MValidIdRequest;
+﻿using ConstradeApi_Admin.Entity;
+using ConstradeApi_Admin.VerificationModel.MValidIdRequest;
 
 namespace ConstradeApi_Admin.VerificationModel.MValidIdRequest.Repository
 {

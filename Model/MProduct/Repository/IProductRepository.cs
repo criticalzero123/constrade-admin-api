@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Model.MProduct;
+﻿using ConstradeApi_Admin.Model.MProduct;
 
 namespace ConstradeApi_Admin.Model.MProduct.Repository
 {

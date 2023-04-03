@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Model.MCommunity;
+﻿using ConstradeApi_Admin.Model.MCommunity;
 
 namespace ConstradeApi_Admin.Model.MCommunity.Repository
 {

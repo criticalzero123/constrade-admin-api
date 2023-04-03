@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Model.Response;
+﻿using ConstradeApi_Admin.Model.Response;
 using ConstradeApi_Admin.Model.MCommunity.Repository;
 using ConstradeApi_Admin.Model.MCommunityPost.Repository;
 using ConstradeApi_Admin.Model.MCommunityPostComment.Repository;

@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Entity;
+﻿using ConstradeApi_Admin.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace ConstradeApi_Admin.Data

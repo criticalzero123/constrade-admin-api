@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Model.MSystemFeedback;
+﻿using ConstradeApi_Admin.Model.MSystemFeedback;
 
 namespace ConstradeApi_Admin.Model.MSystemFeedback.Repository
 {

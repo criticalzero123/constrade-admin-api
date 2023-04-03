@@ -1,6 +1,6 @@
 ﻿
-using ConstradeApi.Model.Response;
-using ConstradeApi.VerificationModel.MValidIdRequest;
+using ConstradeApi_Admin.Model.Response;
+using ConstradeApi_Admin.VerificationModel.MValidIdRequest;
 using ConstradeApi_Admin.VerificationModel.MValidIdRequest.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

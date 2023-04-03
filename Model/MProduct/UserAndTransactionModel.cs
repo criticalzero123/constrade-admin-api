@@ -1,6 +1,6 @@
-﻿using ConstradeApi.Entity;
-using ConstradeApi.Model.MTransaction;
-using ConstradeApi.Model.MUser;
+﻿using ConstradeApi_Admin.Entity;
+using ConstradeApi_Admin.Model.MTransaction;
+using ConstradeApi_Admin.Model.MUser;
 
 namespace ConstradeApi_Admin.Model.MProduct
 {

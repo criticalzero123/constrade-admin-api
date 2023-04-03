@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Model.MReport;
+﻿using ConstradeApi_Admin.Model.MReport;
 
 namespace ConstradeApi_Admin.Model.MReport.Repository
 {

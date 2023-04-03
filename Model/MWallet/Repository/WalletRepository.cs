@@ -1,5 +1,4 @@
-﻿using ConstradeApi.Model.MWallet;
-using ConstradeApi.Services.EntityToModel;
+﻿using ConstradeApi_Admin.Services.EntityToModel;
 using ConstradeApi_Admin.Data;
 using Microsoft.EntityFrameworkCore;
 

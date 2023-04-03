@@ -1,7 +1,7 @@
-﻿using ConstradeApi.Entity;
-using ConstradeApi.Model.MReport;
-using ConstradeApi.Model.MUser;
-using ConstradeApi.Services.EntityToModel;
+﻿using ConstradeApi_Admin.Entity;
+using ConstradeApi_Admin.Model.MReport;
+using ConstradeApi_Admin.Model.MUser;
+using ConstradeApi_Admin.Services.EntityToModel;
 using ConstradeApi_Admin.Data;
 using Microsoft.EntityFrameworkCore;
 

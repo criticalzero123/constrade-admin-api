@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Entity;
+﻿using ConstradeApi_Admin.Entity;
 using ConstradeApi_Admin.Data;
 
 namespace ConstradeApi_Admin.Model.MNotification.Repository

@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Model.MCommunity.MCommunityPostComment;
+﻿using ConstradeApi_Admin.Model.MCommunity.MCommunityPostComment;
 
 namespace ConstradeApi_Admin.Model.MCommunityPostComment.Repository
 {

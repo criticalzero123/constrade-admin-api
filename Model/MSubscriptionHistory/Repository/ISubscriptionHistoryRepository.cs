@@ -1,4 +1,4 @@
-﻿using ConstradeApi.Model.MSubcription;
+﻿using ConstradeApi_Admin.Model.MSubcription;
 
 namespace ConstradeApi_Admin.Model.MSubscriptionHistory.Repository
 {

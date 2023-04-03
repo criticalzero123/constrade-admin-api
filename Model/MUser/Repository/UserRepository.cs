@@ -1,9 +1,9 @@
-﻿using ConstradeApi.Entity;
-using ConstradeApi.Model.MUser;
+﻿using ConstradeApi_Admin.Entity;
+using ConstradeApi_Admin.Model.MUser;
 using ConstradeApi_Admin.Data;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using ConstradeApi.Services.EntityToModel;
+using ConstradeApi_Admin.Services.EntityToModel;
 
 namespace ConstradeApi_Admin.Model.MUser.Repository
 {

@@ -36,9 +36,11 @@ namespace ConstradeApi_Admin
                 });
             });
 
-            builder.Services.AddDbContext<AdminDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgresDBProd"]));
-            builder.Services.AddDbContext<AdminVerificationDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgresDBVerificationProd"]));
+            builder.Services.AddDbContext<AdminDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgresDBDev"]));
+            builder.Services.AddDbContext<AdminVerificationDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgresDBVerificationDev"]));
 
+            //builder.Services.AddDbContext<AdminDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgresDBProd"]));
+            //builder.Services.AddDbContext<AdminVerificationDataContext>(option => option.UseNpgsql(builder.Configuration["ConnectionString:PostgresDBVerificationProd"]));
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IReportRepository, ReportRepository>();

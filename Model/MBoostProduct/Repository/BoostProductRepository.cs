@@ -1,5 +1,5 @@
-﻿using ConstradeApi.Entity;
-using ConstradeApi.Services.EntityToModel;
+﻿using ConstradeApi_Admin.Entity;
+using ConstradeApi_Admin.Services.EntityToModel;
 using ConstradeApi_Admin.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;

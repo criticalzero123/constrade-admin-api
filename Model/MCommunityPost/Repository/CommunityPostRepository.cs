@@ -1,7 +1,7 @@
-﻿using ConstradeApi.Entity;
-using ConstradeApi.Model.MCommunity.MCommunityPost;
-using ConstradeApi.Model.MCommunity.MCommunityPostComment;
-using ConstradeApi.Services.EntityToModel;
+﻿using ConstradeApi_Admin.Entity;
+using ConstradeApi_Admin.Model.MCommunity.MCommunityPost;
+using ConstradeApi_Admin.Model.MCommunity.MCommunityPostComment;
+using ConstradeApi_Admin.Services.EntityToModel;
 using ConstradeApi_Admin.Data;
 using Microsoft.EntityFrameworkCore;
 

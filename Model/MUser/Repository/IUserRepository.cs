@@ -1,8 +1,4 @@
-﻿using ConstradeApi.Model.MReport;
-using ConstradeApi.Model.MTransaction;
-using ConstradeApi.Model.MUser;
-
-namespace ConstradeApi_Admin.Model.MUser.Repository
+﻿namespace ConstradeApi_Admin.Model.MUser.Repository
 {
     public interface IUserRepository
     {
