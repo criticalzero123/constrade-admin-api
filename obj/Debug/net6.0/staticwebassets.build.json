@@ -1,23 +1,11 @@
 {
   "Version": 1,
-  "Hash": "12ilVD98wJymROkbuPj8HBn4R2UkvuC2kaQuhzOyIig=",
+  "Hash": "LnO+GdiMk2wbvl0uAev8u/eI5RLj/Q355zJH/PhHyE4=",
   "Source": "ConstradeApi-Admin",
   "BasePath": "_content/ConstradeApi-Admin",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [
-    {
-      "Identity": "C:\\Users\\jdcar\\OneDrive\\Desktop\\constrade\\ConstradeApi\\ConstradeApi.csproj",
-      "Version": 2,
-      "Source": "ConstradeApi",
-      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
-      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
-    }
-  ],
+  "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
   "Assets": []
 }
