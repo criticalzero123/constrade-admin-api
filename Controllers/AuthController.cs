@@ -32,11 +32,11 @@ namespace ConstradeApi_Admin.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> RegisterAdmin(string username, string password)
+        public async Task<IActionResult> RegisterAdmin(string username, string password, string key)
         {
             try
             {
-                bool registered = await _authRepo.Register(username, password);
+                bool registered = await _authRepo.Register(username, password, key);
 
                 return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, registered));
             }

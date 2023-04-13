@@ -1,4 +1,5 @@
 ﻿using ConstradeApi_Admin.Model.MProduct;
+using ConstradeApi_Admin.VerificationModel.MProductPrices;
 
 namespace ConstradeApi_Admin.Model.MProduct.Repository
 {
@@ -10,5 +11,6 @@ namespace ConstradeApi_Admin.Model.MProduct.Repository
         Task<int> GetTotalProducts();
         Task<int> GetTotalTransactions();
         Task<IEnumerable<ProductStatistics>> GetProductStatistics();
+        Task<bool> AddProductPrices(ProductPricesModel info);
     }
 }

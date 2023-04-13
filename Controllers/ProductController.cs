@@ -3,6 +3,7 @@ using ConstradeApi_Admin.Model.MBoostProduct.Repository;
 using ConstradeApi_Admin.Model.MProduct.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ConstradeApi_Admin.VerificationModel.MProductPrices;
 
 namespace ConstradeApi_Admin.Controllers
 {
@@ -87,6 +88,21 @@ namespace ConstradeApi_Admin.Controllers
                 var flag = await _boost.CancelBoost(id);
 
                 return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, flag));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+        }
+
+        [HttpPost("prices/add")]
+        public async Task<IActionResult> AddProductPrices([FromBody] ProductPricesModel info)
+        {
+            try
+            {
+                bool added = await _productRepo.AddProductPrices(info);
+
+                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, added));
             }
             catch (Exception ex)
             {

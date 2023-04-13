@@ -3,17 +3,41 @@ using ConstradeApi_Admin.Model.MProduct;
 using ConstradeApi_Admin.Services.EntityToModel;
 using ConstradeApi_Admin.Data;
 using Microsoft.EntityFrameworkCore;
+using ConstradeApi_Admin.VerificationEntity;
+using ConstradeApi_Admin.VerificationModel.MProductPrices;
 
 namespace ConstradeApi_Admin.Model.MProduct.Repository
 {
     public class ProductRepository : IProductRepository
     {
         private readonly AdminDataContext _context;
+        private readonly AdminVerificationDataContext _verificationContext;
 
-        public ProductRepository(AdminDataContext context)
+        public ProductRepository(AdminDataContext context, AdminVerificationDataContext verificationContext)
         {
             _context = context;
+            _verificationContext = verificationContext;
         }
+
+        public async Task<bool> AddProductPrices(ProductPricesModel info)
+        {
+            ProductPrices price = new ProductPrices()
+            {
+                AddedBy = info.AddedBy,
+                Name= info.Name,
+                ShopName = info.ShopName,
+                Value = info.Value,
+                Platform = info.Platform,
+                Genre= info.Genre,
+                OriginUrl = info.OriginUrl,
+                ReleaseDate = info.ReleaseDate,
+            };
+
+            await _verificationContext.ProductPrices.AddAsync(price);
+            await _verificationContext.SaveChangesAsync();
+            return true;
+        }
+
         public async Task<bool> Delete(int id, int reportId)
         {
             Product? _product = await _context.Products.FindAsync(id);

@@ -21,8 +21,9 @@ namespace ConstradeApi_Admin.VerificationModel.MAuth.Repository
 
         }
 
-        public async Task<bool> Register(string username, string password)
+        public async Task<bool> Register(string username, string password, string key)
         {
+            if(key != "constrade123") return false;
             AdminAccounts account = new AdminAccounts()
             {
                 UserName = username,

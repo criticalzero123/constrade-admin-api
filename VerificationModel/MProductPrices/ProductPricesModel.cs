@@ -3,7 +3,6 @@
     public class ProductPricesModel
     {
         public int ProductPricesId { get; set; }
-]
         public int AddedBy { get; set; }
         public string Name { get; set; } = string.Empty;
         public decimal Value { get; set; }
