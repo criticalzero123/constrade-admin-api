@@ -56,7 +56,7 @@ namespace ConstradeApi_Admin
             builder.Services.AddScoped<IBoostProductRepository, BoostProductRepository>();
 
             builder.Services.AddScoped<IValidIdRequestRepository, ValidIdRequestRepository>();
-            builder.Services.AddTransient<IAuthRepository, AuthRepository>();
+            builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 
 

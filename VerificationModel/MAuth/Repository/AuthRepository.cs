@@ -12,12 +12,12 @@ namespace ConstradeApi_Admin.VerificationModel.MAuth.Repository
         {
             _context = context;
         }
-        public async Task<bool> Login(string username, string password)
+        public async Task<AdminAccounts?> Login(string username, string password)
         {
             AdminAccounts? account = await _context.AdminAccounts.Where(account => account.UserName == username && PasswordHelper.Hash(password) == account.Password)
                                                                  .FirstOrDefaultAsync();
 
-            return account != null;
+            return account ?? null;
 
         }
 

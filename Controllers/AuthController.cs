@@ -21,9 +21,9 @@ namespace ConstradeApi_Admin.Controllers
         {
             try
             {
-                bool isAllowed = await _authRepo.Login(username,password);
+                var account = await _authRepo.Login(username,password);
 
-                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, isAllowed));
+                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, account));
             }
             catch (Exception ex)
             {
