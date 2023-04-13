@@ -43,7 +43,7 @@ namespace ConstradeApi_Admin.Model.MUser.Repository
                     UserId = info.UserId,
                 });
             }
-           
+
             user.UserStatus = info.NewStatus;
             await _context.SaveChangesAsync();
 
@@ -55,12 +55,12 @@ namespace ConstradeApi_Admin.Model.MUser.Repository
             IEnumerable<User> users = _context.Users.Include(_u => _u.Person).ToList();
             List<UserAndPersonModel> u = new List<UserAndPersonModel>();
 
-            foreach(var user in users)
+            foreach (var user in users)
             {
                 IEnumerable<Transaction> transactions = await _context.Transactions.Where(_t => _t.SellerUserId == user.UserId && _t.IsReviewed).ToListAsync();
                 decimal rates = 0;
 
-                if(transactions.Any())
+                if (transactions.Any())
                 {
                     rates = _context.Reviews.ToList().Join(transactions,
                                                                    _r => _r.TransactionRefId,
@@ -70,7 +70,7 @@ namespace ConstradeApi_Admin.Model.MUser.Repository
                                                                 .Select(result => Convert.ToDecimal(result._r.Rate)).ToList().Average();
                 }
 
-                
+
                 u.Add(new UserAndPersonModel
                 {
                     Person = user.Person.ToModel(),
@@ -78,7 +78,7 @@ namespace ConstradeApi_Admin.Model.MUser.Repository
                     Rate = rates
                 });
             }
-            
+
 
             return u;
         }
@@ -98,6 +98,25 @@ namespace ConstradeApi_Admin.Model.MUser.Repository
                                                                                      Review = _result._r.ToModel(),
                                                                                  });
             return reviews;
+        }
+
+        public async Task<IEnumerable<UserStatistics>> GetUserStatistics()
+        {
+            return await _context.Users.Select(u => new UserStatistics
+            {
+                UserType = u.UserType,
+                Date = u.DateCreated
+            }).ToListAsync();
+        }
+
+        public async Task<int> TotalUsers()
+        {
+            return await _context.Users.CountAsync();
+        }
+
+        public async Task<int> TotalUserVerified()
+        {
+            return await _context.Users.Where(u => u.UserType != "semi-verified").CountAsync();
         }
     }
 }

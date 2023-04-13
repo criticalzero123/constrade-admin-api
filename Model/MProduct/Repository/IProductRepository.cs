@@ -7,5 +7,8 @@ namespace ConstradeApi_Admin.Model.MProduct.Repository
         public Task<bool> Delete(int id, int reportId);
         Task<IEnumerable<ProductModel>> GetProducts();
         Task<UserAndTransactionModel> GetTransaction(int id);
+        Task<int> GetTotalProducts();
+        Task<int> GetTotalTransactions();
+        Task<IEnumerable<ProductStatistics>> GetProductStatistics();
     }
 }

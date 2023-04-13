@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RsyY3ljGx05Fy9/O+kDf8hm5HyM4LpkNytpV4xFTHIkg7C9G8nLmaDmHNzU9p7mMpqCXipPehMIJICi4Z+1RJQ==",
+  "dgSpecHash": "GUSOcHAvYFtIqkiDWtmYC6ZWrxtf/WoP0JGn9gcGdkI9TdjRmWwVCuvuwp1mZzYkyV2kbveXEvNTlN7bqEzSKQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jdcar\\OneDrive\\Desktop\\constrade\\ConstradeApi-Admin\\ConstradeApi-Admin.csproj",
+  "projectFilePath": "C:\\Users\\jdcar\\OneDrive\\Desktop\\School\\constrade\\ConstradeApi-Admin\\ConstradeApi-Admin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jdcar\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\jdcar\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.3\\microsoft.entityframeworkcore.7.0.3.nupkg.sha512",

@@ -11,6 +11,7 @@ using ConstradeApi_Admin.Model.MSystemFeedback.Repository;
 using ConstradeApi_Admin.Model.MUser.Repository;
 using ConstradeApi_Admin.Model.MWallet.Repository;
 using ConstradeApi_Admin.VerificationEntity;
+using ConstradeApi_Admin.VerificationModel.MAuth.Repository;
 using ConstradeApi_Admin.VerificationModel.MValidIdRequest.Repository;
 using Microsoft.EntityFrameworkCore;
 
@@ -55,6 +56,7 @@ namespace ConstradeApi_Admin
             builder.Services.AddScoped<IBoostProductRepository, BoostProductRepository>();
 
             builder.Services.AddScoped<IValidIdRequestRepository, ValidIdRequestRepository>();
+            builder.Services.AddTransient<IAuthRepository, AuthRepository>();
 
 
 

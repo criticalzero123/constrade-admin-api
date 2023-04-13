@@ -1080,11 +1080,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jdcar\\OneDrive\\Desktop\\constrade\\ConstradeApi-Admin\\ConstradeApi-Admin.csproj",
+      "projectUniqueName": "C:\\Users\\jdcar\\OneDrive\\Desktop\\School\\constrade\\ConstradeApi-Admin\\ConstradeApi-Admin.csproj",
       "projectName": "ConstradeApi-Admin",
-      "projectPath": "C:\\Users\\jdcar\\OneDrive\\Desktop\\constrade\\ConstradeApi-Admin\\ConstradeApi-Admin.csproj",
+      "projectPath": "C:\\Users\\jdcar\\OneDrive\\Desktop\\School\\constrade\\ConstradeApi-Admin\\ConstradeApi-Admin.csproj",
       "packagesPath": "C:\\Users\\jdcar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jdcar\\OneDrive\\Desktop\\constrade\\ConstradeApi-Admin\\obj\\",
+      "outputPath": "C:\\Users\\jdcar\\OneDrive\\Desktop\\School\\constrade\\ConstradeApi-Admin\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jdcar\\AppData\\Roaming\\NuGet\\NuGet.Config",

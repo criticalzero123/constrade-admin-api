@@ -36,6 +36,25 @@ namespace ConstradeApi_Admin.Model.MProduct.Repository
             return products;
         }
 
+        public async Task<IEnumerable<ProductStatistics>> GetProductStatistics()
+        {
+            return await _context.Products.Select(p => new ProductStatistics
+            {
+                ProductStatus = p.ProductStatus,
+                Date = p.DateCreated
+            }).ToListAsync();
+        }
+
+        public async Task<int> GetTotalProducts()
+        {
+            return await _context.Products.CountAsync();
+        }
+
+        public async Task<int> GetTotalTransactions()
+        {
+            return await _context.Transactions.CountAsync();
+        }
+
         public async Task<UserAndTransactionModel> GetTransaction(int id)
         {
             Transaction transaction = await _context.Transactions.Include(_t => _t.Seller.Person).Include(_t => _t.Buyer.Person).Where(_t => _t.ProductId == id).FirstAsync();
