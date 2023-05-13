@@ -30,6 +30,7 @@ namespace ConstradeApi_Admin.Entity
         [Column("notification_date")]
         public DateTime NotificationDate { get; set; }
 
-
+        [Column("status")]
+        public string Status { get; set; } = "unread";
     }
 }

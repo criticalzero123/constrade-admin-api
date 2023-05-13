@@ -1,6 +1,8 @@
 ﻿using ConstradeApi_Admin.Services.EntityToModel;
 using ConstradeApi_Admin.Data;
 using Microsoft.EntityFrameworkCore;
+using ConstradeApi_Admin.Entity;
+
 
 namespace ConstradeApi_Admin.Model.MWallet.Repository
 {
@@ -28,7 +30,24 @@ namespace ConstradeApi_Admin.Model.MWallet.Repository
             IEnumerable<WalletModel> wallet = await _context.Wallet.Select(_p => _p.ToModel())
                                                                    .ToListAsync();
 
+            
             return wallet;
+        }
+
+        public async Task<IEnumerable<OtherTransaction>> GetOtherTransactionWalletPartial(int walletId)
+        {
+            var otherTransactions = await _context.OtherTransactions.Where(ot => ot.WalletId == walletId)
+                                                                    //.Take(10)
+                                                                    .Select(ot => new OtherTransaction
+                                                                    {
+                                                                        WalletId = ot.WalletId,
+                                                                        Amount = ot.Amount,
+                                                                        TransactionType = ot.TransactionType,
+                                                                        Date = ot.Date,
+                                                                    })
+                                                                    .ToListAsync();
+
+            return otherTransactions;
         }
     }
 }

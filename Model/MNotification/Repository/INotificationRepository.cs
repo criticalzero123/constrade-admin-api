@@ -2,6 +2,6 @@
 {
     public interface INotificationRepository
     {
-        public Task<bool> SendAlert(int id);
+        public Task<bool> SendAlert(int id, int reportId);
     }
 }

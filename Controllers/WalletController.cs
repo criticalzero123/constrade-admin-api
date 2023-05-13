@@ -37,8 +37,10 @@ namespace ConstradeApi_Admin.Controllers
             try
             {
                 var transactions = await walletRepo.GetTransaction(id);
+                var otherTransac = await walletRepo.GetOtherTransactionWalletPartial(id);
 
-                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, transactions));
+
+                return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, new { Money = transactions, Other = otherTransac }));
             }
             catch (Exception ex)
             {

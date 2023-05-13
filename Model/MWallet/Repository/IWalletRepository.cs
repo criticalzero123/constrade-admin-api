@@ -1,4 +1,5 @@
-﻿using ConstradeApi_Admin.Model.MWallet;
+﻿
+using ConstradeApi_Admin.Entity;
 
 namespace ConstradeApi_Admin.Model.MWallet.Repository
 {
@@ -6,5 +7,6 @@ namespace ConstradeApi_Admin.Model.MWallet.Repository
     { 
         Task<IEnumerable<WalletModel>> GetWallet();
         Task<IEnumerable<SendMoneyTransactionModel>> GetTransaction(int id);
+        Task<IEnumerable<OtherTransaction>> GetOtherTransactionWalletPartial(int walletId);
     }
 }

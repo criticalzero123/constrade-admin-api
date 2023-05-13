@@ -17,11 +17,11 @@ namespace ConstradeApi_Admin.Controllers
         }
 
         [HttpPost("alert/{id}")]
-        public async Task<IActionResult> AlertAccount(int id)
+        public async Task<IActionResult> AlertAccount(int id, int reportId)
         {
             try
             {
-                bool flag = await notifRepo.SendAlert(id);
+                bool flag = await notifRepo.SendAlert(id, reportId);
 
                 return Ok(ResponseHandler.GetApiResponse(ResponseType.Success, flag));
             }

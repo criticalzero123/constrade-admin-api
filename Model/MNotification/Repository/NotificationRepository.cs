@@ -1,5 +1,7 @@
 ﻿using ConstradeApi_Admin.Entity;
 using ConstradeApi_Admin.Data;
+using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConstradeApi_Admin.Model.MNotification.Repository
 {
@@ -12,8 +14,9 @@ namespace ConstradeApi_Admin.Model.MNotification.Repository
              _context = context;
         }
 
-        public async Task<bool> SendAlert(int id)
+        public async Task<bool> SendAlert(int id, int reportId)
         {
+            Report flag = await _context.Reports.Where(r => r.ReportId == reportId).FirstAsync();
             UserNotification notification = new UserNotification()
             {
                 UserId = id,
@@ -22,9 +25,13 @@ namespace ConstradeApi_Admin.Model.MNotification.Repository
                 NotificationType = "alert",
                 NotificationMessage= "Your account is being warn. Please refrain being a bad boy.",
                 NotificationDate = DateTime.Now,
+                Status = "unread"
             };
 
             await _context.AddAsync(notification);
+
+            _context.Reports.Remove(flag);
+
             await _context.SaveChangesAsync();
 
             return true;

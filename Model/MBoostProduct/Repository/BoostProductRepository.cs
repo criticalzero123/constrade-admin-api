@@ -34,6 +34,7 @@ namespace ConstradeApi_Admin.Model.MBoostProduct.Repository
             return true;
         }
 
+
         public async Task<IEnumerable<BoostProduct>> GetAll()
         {
             IEnumerable<BoostProduct> boosted = await _context.BoostedProduct.Where(_b => _b.Status == "active").ToListAsync();
